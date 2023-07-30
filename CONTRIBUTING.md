@@ -65,14 +65,14 @@ Root project 'arrow'
 Dokka is responsible for generating documentation based on source code annotations. [Knit](https://github.com/Kotlin/kotlinx-knit) is in charge of compiling and validating your doc snippets and deploying the proper binaries for those.
 
 The `build` task runs `knitCheck` to check if all Knit annotated code snippets in KDoc comments have been generated as examples. Knit code snippet annotations look like HTML comments inside KDoc:
-```kotlin
-/**
- * ```kotlin
- * // Code example goes here
- * ```
- * <!--- KNIT example-arrow-core-01.kt -->
- */
-```
+   ```kotlin
+    /**
+    * ```kotlin
+    * // Code example goes here
+    * ```
+    * <!--- KNIT example-arrow-core-01.kt -->
+    */
+   ```
 
 If you added/changed any Knit annotated code snippets in the docs you have to run the `knit` task to (re-)generate the examples, otherwise your build will fail:
 
@@ -107,34 +107,32 @@ All Kdocs should include a short header that describes what the data type or fun
 
 for example
 
-```kotlin
-/**
- * (...)
- * 
- * `Option<A>` is a container for an optional value of type `A`. If the value of type `A` is present, the `Option<A>` is an instance of `Some<A>`, containing the present value of type `A`. If the value is absent, the `Option<A>` is the object `None`.
- *
- * ```kotlin
- * import arrow.core.Option
- * import arrow.core.Some
- * import arrow.core.none
- *
- * //sampleStart
- * val someValue: Option<String> = Some("I am wrapped in something")
- * val emptyValue: Option<String> = none()
- * //sampleEnd
- * fun main() {
- *  println("value = $someValue")
- *  println("emptyValue = $emptyValue")
- * }
- *
- * <!--- KNIT example-option-01.kt -->
- *  
- * (...)
- */ 
-public sealed class Option<out A> {
-  
-}
-```
+   ```kotlin
+    /**
+     * (...)
+     * 
+     * `Option<A>` is a container for an optional value of type `A`. If the value of type `A` is present, the `Option<A>` is an instance of `Some<A>`, containing the present value of type `A`. If the value is absent, the `Option<A>` is the object `None`.
+     *
+     * ```kotlin
+     * import arrow.core.Option
+     * import arrow.core.Some
+     * import arrow.core.none
+     *
+     * // sampleStart
+     * val someValue: Option<String> = Some("I am wrapped in something")
+     * val emptyValue: Option<String> = none()
+     * // sampleEnd
+     * fun main() {
+     *  println("value = $someValue")
+     *  println("emptyValue = $emptyValue")
+     * }
+     * ```
+     * <!--- KNIT example-option-01.kt -->
+     *  
+     * (...)
+     */ 
+     public sealed class Option<out A> { (...) }
+   ```
 
 #### 2. Snippets for broader samples
 
